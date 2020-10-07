@@ -1,32 +1,11 @@
-/*
- * Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- */
-
-const IPCClient = require('aws-greengrass-ipc-sdk-js');
-const GreengrassCommon = require('aws-greengrass-common-js');
-const { logging } = require('aws-greengrass-common-js');
-const Util = require('./util');
-
-const { AUTH_TOKEN } = GreengrassCommon.envVars;
-
-const logger = new logging.LocalWatchLogger();
-
+export = Lambda;
 /**
  * Constructs a service interface object. Each API operation is exposed as a function on service.
  * @class
  * @memberOf aws-greengrass-core-sdk
  */
-class Lambda {
-    /**
-     * Constructs a service object. This object has one method for each API operation.
-     *
-     * @example <caption>Constructing a Lambda object</caption>
-     * var lambda = new GG.Lambda();
-     */
-    constructor() {
-        this.ipc = new IPCClient(AUTH_TOKEN);
-    }
-
+declare class Lambda {
+    ipc: any;
     /**
      * Called when a response from the service is returned.
      *
@@ -42,7 +21,6 @@ class Lambda {
      * @param data.Payload {Buffer|TypedArray|Blob|String} It is the result returned by the Lambda function. This is present only if the invocation type is <tt>RequestResponse</tt>.
      * <br/>In the event of a function error this field contains a message describing the error. For the <tt>Handled</tt> errors the Lambda function will report this message. For <tt>Unhandled</tt> errors AWS Lambda reports the message.
      */
-
     /**
      * Invokes a specific Lambda function.<br/>
      * In Greengrass, version of the Lambda which you would like to invoke needs to be provided.
@@ -90,102 +68,11 @@ class Lambda {
      *   else     console.log(data);           // successful response
      * });
      */
-    invoke(params, callback) {
-        const functionName = Util.getParameter(params, 'FunctionName');
-        if (functionName === undefined) {
-            callback(new Error('"FunctionName" is a required parameter'), null);
-            return;
-        }
-
-        let arnFields;
-        try {
-            arnFields = new GreengrassCommon.FunctionArnFields(functionName);
-        } catch (e) {
-            callback(new Error(`FunctionName is malformed: ${e}`), null);
-            return;
-        }
-
-        let invocationType;
-        if (params.InvocationType === undefined || params.InvocationType === null) {
-            invocationType = 'RequestResponse';
-        } else {
-            invocationType = params.InvocationType;
-        }
-
-        if (invocationType !== 'Event' && invocationType !== 'RequestResponse') {
-            callback(new Error(`InvocationType '${invocationType}' is incorrect, should be 'Event' or 'RequestResponse'`), null);
-            return;
-        }
-
-        const clientContext = params.ClientContext ? params.ClientContext : '';
-        const payload = params.Payload;
-        const qualifier = params.Qualifier;
-
-        if (!Util.isValidQualifier(qualifier)) {
-            callback(new Error(`Qualifier '${qualifier}' is incorrect`), null);
-            return;
-        }
-
-        const qualifierInternal = arnFields.qualifier;
-
-        // generate the right full function arn with qualifier
-        if (qualifierInternal && qualifier && qualifierInternal !== qualifier) {
-            callback(new Error(`Qualifier '${qualifier}' does not match the version in FunctionName`), null);
-            return;
-        }
-
-        const finalQualifier = qualifierInternal === undefined || qualifierInternal == null ? qualifier : qualifierInternal;
-
-        let functionArn;
-        if (typeof GreengrassCommon.buildFunctionArn === 'function') {
-            // GGC v1.9.0 or newer
-            functionArn = GreengrassCommon.buildFunctionArn(
-                arnFields.unqualifiedArn,
-                finalQualifier,
-            );
-        } else {
-            // older version of GGC
-            throw new Error('Function buildFunctionArn not found. buildFunctionArn is introduced in GGC v1.9.0. '
-                    + 'Please check your GGC version.');
-        }
-
-        // verify client context is base64 encoded
-        if (Object.prototype.hasOwnProperty.call(params, 'ClientContext')) {
-            const cxt = params.ClientContext;
-            if (!Util.isValidContext(cxt)) {
-                callback(new Error('Client Context is invalid'), null);
-                return;
-            }
-        }
-
-        logger.debug(`Invoking local lambda ${functionArn} with payload ${payload} and client context ${clientContext}`);
-
-        this.ipc.postWork(functionArn, payload, clientContext, invocationType, (postWorkErr, invocationId) => {
-            if (postWorkErr) {
-                logger.error(`Failed to invoke function due to ${postWorkErr}`);
-                callback(postWorkErr, null);
-                return;
-            }
-
-            if (invocationType === 'RequestResponse') {
-                this.ipc.getWorkResult(functionArn, invocationId, (getWorkResultErr, body, functionErr, statusCode) => {
-                    if (getWorkResultErr) {
-                        logger.error(`Failed to get work result due to ${getWorkResultErr}`);
-                        callback(getWorkResultErr, null);
-                        return;
-                    }
-                    const data = {
-                        FunctionError: functionErr,
-                        StatusCode: statusCode,
-                        Payload: body,
-                    };
-                    callback(null, data);
-                });
-            } else {
-                callback(null, invocationId);
-            }
-        });
-    }
+    invoke(params: {
+        FunctionName: string;
+        InvocationType: string;
+        ClientContext: string;
+        Payload: any;
+        Qualifier: string;
+    }, callback: (err: Error, data: any, StatusCode: any, FunctionError: string, Payload: any) => any): void;
 }
-
-module.exports = Lambda;
