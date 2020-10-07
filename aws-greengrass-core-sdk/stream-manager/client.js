@@ -34,48 +34,6 @@ const removeFromArray = (arr, f) => {
  * });
  */
 class StreamManagerClient {
-    closed = false;
-
-    /**
-     * @type {module:net.Socket}
-     */
-    socket = null;
-
-    authToken = null;
-
-    connected = false;
-
-    /**
-     * @typedef Logger
-     * @type {Object}
-     * @property {function(...*)} error
-     * @property {function(...*)} info
-     * @property {function(...*)} debug
-     */
-
-    /**
-     * @type {?Logger}
-     */
-    logger = null;
-
-    requestMap = {};
-
-    connectCallbacks = [];
-
-    errorCallbacks = [];
-
-    defaultParams = {
-        port: null,
-        host: '127.0.0.1',
-        onConnectCb: null,
-        onErrorCb: null,
-        logger: {
-            error: console.error,
-            debug: console.debug,
-            info: console.info,
-        },
-    };
-
     /**
      * Constructs a new Stream Manager client. Once connected, <tt>onConnectCb</tt> will be called and
      * the client can then be used.
@@ -88,6 +46,48 @@ class StreamManagerClient {
      * @param {Logger?} opts.logger
      */
     constructor(opts) {
+        this.closed = false;
+
+        /**
+         * @type {module:net.Socket}
+         */
+        this.socket = null;
+
+        this.authToken = null;
+
+        this.connected = false;
+
+        /**
+         * @typedef Logger
+         * @type {Object}
+         * @property {function(...*)} error
+         * @property {function(...*)} info
+         * @property {function(...*)} debug
+         */
+
+        /**
+         * @type {?Logger}
+         */
+        this.logger = null;
+
+        this.requestMap = {};
+
+        this.connectCallbacks = [];
+
+        this.errorCallbacks = [];
+
+        this.defaultParams = {
+            port: null,
+            host: '127.0.0.1',
+            onConnectCb: null,
+            onErrorCb: null,
+            logger: {
+                error: console.error,
+                debug: console.debug,
+                info: console.info,
+            },
+        };
+        
         let {
             // eslint-disable-next-line prefer-const
             port, host, onConnectCb, onErrorCb, logger,
