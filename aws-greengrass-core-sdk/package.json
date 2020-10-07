@@ -1,5 +1,5 @@
 {
-  "name": "aws-greengrass-core-sdk",
+  "name": "@nesto-software/aws-greengrass-core-sdk",
   "version": "1.6.0",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,8 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/aws/aws-greengrass-core-sdk-js"
-  }
+  },
+  "publishConfig": {
+     "access": "public"
+   }
 }
