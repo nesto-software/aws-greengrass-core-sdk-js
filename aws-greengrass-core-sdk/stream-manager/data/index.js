@@ -9,12 +9,11 @@
  */
 class StrategyOnFull {
 
-    #value = null;
     constructor(value = null) {
         if (!(value in Object.values(StrategyOnFull.options))) {
             throw new Error("Value must be one of the enumerated options");
         }
-        this.#value = value;
+        this.value = value;
     }
 
     static fromMap(d) {
@@ -22,7 +21,7 @@ class StrategyOnFull {
     }
 
     asMap() {
-        return this.#value;
+        return this.value;
     }
 };
 Object.defineProperty(StrategyOnFull, "options", {
@@ -64,12 +63,11 @@ Object.defineProperty(StrategyOnFull, "OverwriteOldestData", {
  */
 class Persistence {
 
-    #value = null;
     constructor(value = null) {
         if (!(value in Object.values(Persistence.options))) {
             throw new Error("Value must be one of the enumerated options");
         }
-        this.#value = value;
+        this.value = value;
     }
 
     static fromMap(d) {
@@ -77,7 +75,7 @@ class Persistence {
     }
 
     asMap() {
-        return this.#value;
+        return this.value;
     }
 };
 Object.defineProperty(Persistence, "options", {
@@ -117,10 +115,6 @@ Object.defineProperty(Persistence, "Memory", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class ConnectRequest {
-    #__requestId = null;
-    #__protocolVersion = null;
-    #__sdkVersion = null;
-    #__authToken = null;
 
     /**
      * @param requestId {String} 
@@ -150,10 +144,10 @@ class ConnectRequest {
             throw new Error("authToken must be String");
         }
 
-        this.#__requestId = requestId;
-        this.#__protocolVersion = protocolVersion;
-        this.#__sdkVersion = sdkVersion;
-        this.#__authToken = authToken;
+        this.__requestId = requestId;
+        this.__protocolVersion = protocolVersion;
+        this.__sdkVersion = sdkVersion;
+        this.__authToken = authToken;
     }
 
     /**
@@ -161,7 +155,7 @@ class ConnectRequest {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -171,7 +165,7 @@ class ConnectRequest {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -187,7 +181,7 @@ class ConnectRequest {
      
      */
     get protocolVersion() {
-        return this.#__protocolVersion;
+        return this.__protocolVersion;
     }
     /**
      * @param value {String} 
@@ -197,7 +191,7 @@ class ConnectRequest {
             throw new Error("protocolVersion must be String");
         }
 
-        this.#__protocolVersion = value;
+        this.__protocolVersion = value;
     }
     /**
      * @param value {String} 
@@ -213,7 +207,7 @@ class ConnectRequest {
      
      */
     get sdkVersion() {
-        return this.#__sdkVersion;
+        return this.__sdkVersion;
     }
     /**
      * @param value {String} 
@@ -223,7 +217,7 @@ class ConnectRequest {
             throw new Error("sdkVersion must be String");
         }
 
-        this.#__sdkVersion = value;
+        this.__sdkVersion = value;
     }
     /**
      * @param value {String} 
@@ -239,7 +233,7 @@ class ConnectRequest {
      
      */
     get authToken() {
-        return this.#__authToken;
+        return this.__authToken;
     }
     /**
      * @param value {String} 
@@ -249,7 +243,7 @@ class ConnectRequest {
             throw new Error("authToken must be String");
         }
 
-        this.#__authToken = value;
+        this.__authToken = value;
     }
     /**
      * @param value {String} 
@@ -361,12 +355,11 @@ Object.defineProperty(ConnectRequest, "validationsMap", {
  */
 class ResponseStatusCode {
 
-    #value = null;
     constructor(value = null) {
         if (!(value in Object.values(ResponseStatusCode.options))) {
             throw new Error("Value must be one of the enumerated options");
         }
-        this.#value = value;
+        this.value = value;
     }
 
     static fromMap(d) {
@@ -374,7 +367,7 @@ class ResponseStatusCode {
     }
 
     asMap() {
-        return this.#value;
+        return this.value;
     }
 };
 Object.defineProperty(ResponseStatusCode, "options", {
@@ -554,13 +547,6 @@ Object.defineProperty(ResponseStatusCode, "OutOfMemoryError", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class ConnectResponse {
-    #__requestId = null;
-    #__status = null;
-    #__errorMessage = null;
-    #__protocolVersion = null;
-    #__supportedProtocolVersions = null;
-    #__serverVersion = null;
-    #__clientIdentifier = null;
 
     /**
      * @param requestId {String} 
@@ -611,13 +597,13 @@ class ConnectResponse {
             throw new Error("clientIdentifier must be String");
         }
 
-        this.#__requestId = requestId;
-        this.#__status = status;
-        this.#__errorMessage = errorMessage;
-        this.#__protocolVersion = protocolVersion;
-        this.#__supportedProtocolVersions = supportedProtocolVersions;
-        this.#__serverVersion = serverVersion;
-        this.#__clientIdentifier = clientIdentifier;
+        this.__requestId = requestId;
+        this.__status = status;
+        this.__errorMessage = errorMessage;
+        this.__protocolVersion = protocolVersion;
+        this.__supportedProtocolVersions = supportedProtocolVersions;
+        this.__serverVersion = serverVersion;
+        this.__clientIdentifier = clientIdentifier;
     }
 
     /**
@@ -625,7 +611,7 @@ class ConnectResponse {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -635,7 +621,7 @@ class ConnectResponse {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -651,7 +637,7 @@ class ConnectResponse {
      
      */
     get status() {
-        return this.#__status;
+        return this.__status;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -661,7 +647,7 @@ class ConnectResponse {
             throw new Error("status must be ResponseStatusCode");
         }
 
-        this.#__status = value;
+        this.__status = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -677,7 +663,7 @@ class ConnectResponse {
      
      */
     get errorMessage() {
-        return this.#__errorMessage;
+        return this.__errorMessage;
     }
     /**
      * @param value {String} 
@@ -687,7 +673,7 @@ class ConnectResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__errorMessage = value;
+        this.__errorMessage = value;
     }
     /**
      * @param value {String} 
@@ -703,7 +689,7 @@ class ConnectResponse {
      
      */
     get protocolVersion() {
-        return this.#__protocolVersion;
+        return this.__protocolVersion;
     }
     /**
      * @param value {String} 
@@ -713,7 +699,7 @@ class ConnectResponse {
             throw new Error("protocolVersion must be String");
         }
 
-        this.#__protocolVersion = value;
+        this.__protocolVersion = value;
     }
     /**
      * @param value {String} 
@@ -729,7 +715,7 @@ class ConnectResponse {
      
      */
     get supportedProtocolVersions() {
-        return this.#__supportedProtocolVersions;
+        return this.__supportedProtocolVersions;
     }
     /**
      * @param value {String[]} 
@@ -742,7 +728,7 @@ class ConnectResponse {
             throw new Error("supportedProtocolVersions array values must be String");
         }
 
-        this.#__supportedProtocolVersions = value;
+        this.__supportedProtocolVersions = value;
     }
     /**
      * @param value {String[]} 
@@ -758,7 +744,7 @@ class ConnectResponse {
      
      */
     get serverVersion() {
-        return this.#__serverVersion;
+        return this.__serverVersion;
     }
     /**
      * @param value {String} 
@@ -768,7 +754,7 @@ class ConnectResponse {
             throw new Error("serverVersion must be String");
         }
 
-        this.#__serverVersion = value;
+        this.__serverVersion = value;
     }
     /**
      * @param value {String} 
@@ -784,7 +770,7 @@ class ConnectResponse {
      
      */
     get clientIdentifier() {
-        return this.#__clientIdentifier;
+        return this.__clientIdentifier;
     }
     /**
      * @param value {String} 
@@ -794,7 +780,7 @@ class ConnectResponse {
             throw new Error("clientIdentifier must be String");
         }
 
-        this.#__clientIdentifier = value;
+        this.__clientIdentifier = value;
     }
     /**
      * @param value {String} 
@@ -935,12 +921,11 @@ Object.defineProperty(ConnectResponse, "validationsMap", {
  */
 class Operation {
 
-    #value = null;
     constructor(value = null) {
         if (!(value in Object.values(Operation.options))) {
             throw new Error("Value must be one of the enumerated options");
         }
-        this.#value = value;
+        this.value = value;
     }
 
     static fromMap(d) {
@@ -948,7 +933,7 @@ class Operation {
     }
 
     asMap() {
-        return this.#value;
+        return this.value;
     }
 };
 Object.defineProperty(Operation, "options", {
@@ -1118,8 +1103,6 @@ Object.defineProperty(Operation, "DescribeMessageStreamResponse", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class MessageFrame {
-    #__operation = null;
-    #__payload = null;
 
     /**
      * @param operation {aws-greengrass-core-sdk.StreamManager.Operation} 
@@ -1137,8 +1120,8 @@ class MessageFrame {
             throw new Error("payload must be Buffer");
         }
 
-        this.#__operation = operation;
-        this.#__payload = payload;
+        this.__operation = operation;
+        this.__payload = payload;
     }
 
     /**
@@ -1146,7 +1129,7 @@ class MessageFrame {
      
      */
     get operation() {
-        return this.#__operation;
+        return this.__operation;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.Operation} 
@@ -1156,7 +1139,7 @@ class MessageFrame {
             throw new Error("operation must be Operation");
         }
 
-        this.#__operation = value;
+        this.__operation = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.Operation} 
@@ -1172,7 +1155,7 @@ class MessageFrame {
      
      */
     get payload() {
-        return this.#__payload;
+        return this.__payload;
     }
     /**
      * @param value {Buffer} 
@@ -1182,7 +1165,7 @@ class MessageFrame {
             throw new Error("payload must be Buffer");
         }
 
-        this.#__payload = value;
+        this.__payload = value;
     }
     /**
      * @param value {Buffer} 
@@ -1251,11 +1234,6 @@ Object.defineProperty(MessageFrame, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class HTTPConfig {
-    #__identifier = null;
-    #__uri = null;
-    #__batchSize = null;
-    #__batchIntervalMillis = null;
-    #__priority = null;
 
     /**
      * @param identifier {String} A unique identifier to identify this individual upload stream.
@@ -1296,11 +1274,11 @@ class HTTPConfig {
             throw new Error("priority must be Number");
         }
 
-        this.#__identifier = identifier;
-        this.#__uri = uri;
-        this.#__batchSize = batchSize;
-        this.#__batchIntervalMillis = batchIntervalMillis;
-        this.#__priority = priority;
+        this.__identifier = identifier;
+        this.__uri = uri;
+        this.__batchSize = batchSize;
+        this.__batchIntervalMillis = batchIntervalMillis;
+        this.__priority = priority;
     }
 
     /**
@@ -1310,7 +1288,7 @@ class HTTPConfig {
 
      */
     get identifier() {
-        return this.#__identifier;
+        return this.__identifier;
     }
     /**
      * @param value {String} A unique identifier to identify this individual upload stream.
@@ -1321,7 +1299,7 @@ class HTTPConfig {
             throw new Error("identifier must be String");
         }
 
-        this.#__identifier = value;
+        this.__identifier = value;
     }
     /**
      * @param value {String} A unique identifier to identify this individual upload stream.
@@ -1339,7 +1317,7 @@ class HTTPConfig {
      
      */
     get uri() {
-        return this.#__uri;
+        return this.__uri;
     }
     /**
      * @param value {String} URL for HTTP endpoint which should receive the POST requests for export.
@@ -1349,7 +1327,7 @@ class HTTPConfig {
             throw new Error("uri must be String");
         }
 
-        this.#__uri = value;
+        this.__uri = value;
     }
     /**
      * @param value {String} URL for HTTP endpoint which should receive the POST requests for export.
@@ -1368,7 +1346,7 @@ class HTTPConfig {
 
      */
     get batchSize() {
-        return this.#__batchSize;
+        return this.__batchSize;
     }
     /**
      * @param value {Number} The maximum size of a batch to send to the destination. Messages will be queued until the batch size is reached, after which they will then be uploaded. If unspecified the default will be 1.
@@ -1380,7 +1358,7 @@ class HTTPConfig {
             throw new Error("batchSize must be Number");
         }
 
-        this.#__batchSize = value;
+        this.__batchSize = value;
     }
     /**
      * @param value {Number} The maximum size of a batch to send to the destination. Messages will be queued until the batch size is reached, after which they will then be uploaded. If unspecified the default will be 1.
@@ -1401,7 +1379,7 @@ class HTTPConfig {
 
      */
     get batchIntervalMillis() {
-        return this.#__batchIntervalMillis;
+        return this.__batchIntervalMillis;
     }
     /**
      * @param value {Number} The time in milliseconds between the earliest un-uploaded message and the current time. If this time is exceeded, messages will be uploaded in the next batch. If unspecified messages will be eligible for upload immediately.
@@ -1413,7 +1391,7 @@ class HTTPConfig {
             throw new Error("batchIntervalMillis must be Number");
         }
 
-        this.#__batchIntervalMillis = value;
+        this.__batchIntervalMillis = value;
     }
     /**
      * @param value {Number} The time in milliseconds between the earliest un-uploaded message and the current time. If this time is exceeded, messages will be uploaded in the next batch. If unspecified messages will be eligible for upload immediately.
@@ -1432,7 +1410,7 @@ class HTTPConfig {
      
      */
     get priority() {
-        return this.#__priority;
+        return this.__priority;
     }
     /**
      * @param value {Number} Priority for this upload stream. Lower values are higher priority. If not specified it will have the lowest priority.
@@ -1442,7 +1420,7 @@ class HTTPConfig {
             throw new Error("priority must be Number");
         }
 
-        this.#__priority = value;
+        this.__priority = value;
     }
     /**
      * @param value {Number} Priority for this upload stream. Lower values are higher priority. If not specified it will have the lowest priority.
@@ -1558,12 +1536,6 @@ Object.defineProperty(HTTPConfig, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class IoTAnalyticsConfig {
-    #__identifier = null;
-    #__iotChannel = null;
-    #__iotMsgIdPrefix = null;
-    #__batchSize = null;
-    #__batchIntervalMillis = null;
-    #__priority = null;
 
     /**
      * @param identifier {String} A unique identifier to identify this individual upload stream.
@@ -1611,12 +1583,12 @@ class IoTAnalyticsConfig {
             throw new Error("priority must be Number");
         }
 
-        this.#__identifier = identifier;
-        this.#__iotChannel = iotChannel;
-        this.#__iotMsgIdPrefix = iotMsgIdPrefix;
-        this.#__batchSize = batchSize;
-        this.#__batchIntervalMillis = batchIntervalMillis;
-        this.#__priority = priority;
+        this.__identifier = identifier;
+        this.__iotChannel = iotChannel;
+        this.__iotMsgIdPrefix = iotMsgIdPrefix;
+        this.__batchSize = batchSize;
+        this.__batchIntervalMillis = batchIntervalMillis;
+        this.__priority = priority;
     }
 
     /**
@@ -1626,7 +1598,7 @@ class IoTAnalyticsConfig {
 
      */
     get identifier() {
-        return this.#__identifier;
+        return this.__identifier;
     }
     /**
      * @param value {String} A unique identifier to identify this individual upload stream.
@@ -1637,7 +1609,7 @@ class IoTAnalyticsConfig {
             throw new Error("identifier must be String");
         }
 
-        this.#__identifier = value;
+        this.__identifier = value;
     }
     /**
      * @param value {String} A unique identifier to identify this individual upload stream.
@@ -1655,7 +1627,7 @@ class IoTAnalyticsConfig {
      
      */
     get iotChannel() {
-        return this.#__iotChannel;
+        return this.__iotChannel;
     }
     /**
      * @param value {String} The name of the IoT Analytics Channel that this exporter should upload to
@@ -1665,7 +1637,7 @@ class IoTAnalyticsConfig {
             throw new Error("iotChannel must be String");
         }
 
-        this.#__iotChannel = value;
+        this.__iotChannel = value;
     }
     /**
      * @param value {String} The name of the IoT Analytics Channel that this exporter should upload to
@@ -1683,7 +1655,7 @@ class IoTAnalyticsConfig {
 
      */
     get iotMsgIdPrefix() {
-        return this.#__iotMsgIdPrefix;
+        return this.__iotMsgIdPrefix;
     }
     /**
      * @param value {String} A string prefixed to each unique message id. After this prefix, StreamManager may append more data to make the message ID unique.
@@ -1694,7 +1666,7 @@ class IoTAnalyticsConfig {
             throw new Error("iotMsgIdPrefix must be String");
         }
 
-        this.#__iotMsgIdPrefix = value;
+        this.__iotMsgIdPrefix = value;
     }
     /**
      * @param value {String} A string prefixed to each unique message id. After this prefix, StreamManager may append more data to make the message ID unique.
@@ -1714,7 +1686,7 @@ class IoTAnalyticsConfig {
 
      */
     get batchSize() {
-        return this.#__batchSize;
+        return this.__batchSize;
     }
     /**
      * @param value {Number} The maximum size of a batch to send to IoT Analytics. Messages will be queued until the batch size is reached, after which they will then be uploaded. If unspecified the default will be 1.
@@ -1726,7 +1698,7 @@ class IoTAnalyticsConfig {
             throw new Error("batchSize must be Number");
         }
 
-        this.#__batchSize = value;
+        this.__batchSize = value;
     }
     /**
      * @param value {Number} The maximum size of a batch to send to IoT Analytics. Messages will be queued until the batch size is reached, after which they will then be uploaded. If unspecified the default will be 1.
@@ -1747,7 +1719,7 @@ class IoTAnalyticsConfig {
 
      */
     get batchIntervalMillis() {
-        return this.#__batchIntervalMillis;
+        return this.__batchIntervalMillis;
     }
     /**
      * @param value {Number} The time in milliseconds between the earliest un-uploaded message and the current time. If this time is exceeded, messages will be uploaded in the next batch. If unspecified messages will be eligible for upload immediately.
@@ -1759,7 +1731,7 @@ class IoTAnalyticsConfig {
             throw new Error("batchIntervalMillis must be Number");
         }
 
-        this.#__batchIntervalMillis = value;
+        this.__batchIntervalMillis = value;
     }
     /**
      * @param value {Number} The time in milliseconds between the earliest un-uploaded message and the current time. If this time is exceeded, messages will be uploaded in the next batch. If unspecified messages will be eligible for upload immediately.
@@ -1778,7 +1750,7 @@ class IoTAnalyticsConfig {
      
      */
     get priority() {
-        return this.#__priority;
+        return this.__priority;
     }
     /**
      * @param value {Number} Priority for this upload stream. Lower values are higher priority. If not specified it will have the lowest priority.
@@ -1788,7 +1760,7 @@ class IoTAnalyticsConfig {
             throw new Error("priority must be Number");
         }
 
-        this.#__priority = value;
+        this.__priority = value;
     }
     /**
      * @param value {Number} Priority for this upload stream. Lower values are higher priority. If not specified it will have the lowest priority.
@@ -1918,11 +1890,6 @@ Object.defineProperty(IoTAnalyticsConfig, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class KinesisConfig {
-    #__identifier = null;
-    #__kinesisStreamName = null;
-    #__batchSize = null;
-    #__batchIntervalMillis = null;
-    #__priority = null;
 
     /**
      * @param identifier {String} A unique identifier to identify this individual upload stream.
@@ -1963,11 +1930,11 @@ class KinesisConfig {
             throw new Error("priority must be Number");
         }
 
-        this.#__identifier = identifier;
-        this.#__kinesisStreamName = kinesisStreamName;
-        this.#__batchSize = batchSize;
-        this.#__batchIntervalMillis = batchIntervalMillis;
-        this.#__priority = priority;
+        this.__identifier = identifier;
+        this.__kinesisStreamName = kinesisStreamName;
+        this.__batchSize = batchSize;
+        this.__batchIntervalMillis = batchIntervalMillis;
+        this.__priority = priority;
     }
 
     /**
@@ -1977,7 +1944,7 @@ class KinesisConfig {
 
      */
     get identifier() {
-        return this.#__identifier;
+        return this.__identifier;
     }
     /**
      * @param value {String} A unique identifier to identify this individual upload stream.
@@ -1988,7 +1955,7 @@ class KinesisConfig {
             throw new Error("identifier must be String");
         }
 
-        this.#__identifier = value;
+        this.__identifier = value;
     }
     /**
      * @param value {String} A unique identifier to identify this individual upload stream.
@@ -2006,7 +1973,7 @@ class KinesisConfig {
      
      */
     get kinesisStreamName() {
-        return this.#__kinesisStreamName;
+        return this.__kinesisStreamName;
     }
     /**
      * @param value {String} The name of the Kinesis data stream that this exporter should upload to
@@ -2016,7 +1983,7 @@ class KinesisConfig {
             throw new Error("kinesisStreamName must be String");
         }
 
-        this.#__kinesisStreamName = value;
+        this.__kinesisStreamName = value;
     }
     /**
      * @param value {String} The name of the Kinesis data stream that this exporter should upload to
@@ -2035,7 +2002,7 @@ class KinesisConfig {
 
      */
     get batchSize() {
-        return this.#__batchSize;
+        return this.__batchSize;
     }
     /**
      * @param value {Number} The maximum size of a batch to send to Kinesis. Messages will be queued until the batch size is reached, after which they will then be uploaded. If unspecified the default will be 1.
@@ -2047,7 +2014,7 @@ class KinesisConfig {
             throw new Error("batchSize must be Number");
         }
 
-        this.#__batchSize = value;
+        this.__batchSize = value;
     }
     /**
      * @param value {Number} The maximum size of a batch to send to Kinesis. Messages will be queued until the batch size is reached, after which they will then be uploaded. If unspecified the default will be 1.
@@ -2068,7 +2035,7 @@ class KinesisConfig {
 
      */
     get batchIntervalMillis() {
-        return this.#__batchIntervalMillis;
+        return this.__batchIntervalMillis;
     }
     /**
      * @param value {Number} The time in milliseconds between the earliest un-uploaded message and the current time. If this time is exceeded, messages will be uploaded in the next batch. If unspecified messages will be eligible for upload immediately.
@@ -2080,7 +2047,7 @@ class KinesisConfig {
             throw new Error("batchIntervalMillis must be Number");
         }
 
-        this.#__batchIntervalMillis = value;
+        this.__batchIntervalMillis = value;
     }
     /**
      * @param value {Number} The time in milliseconds between the earliest un-uploaded message and the current time. If this time is exceeded, messages will be uploaded in the next batch. If unspecified messages will be eligible for upload immediately.
@@ -2099,7 +2066,7 @@ class KinesisConfig {
      
      */
     get priority() {
-        return this.#__priority;
+        return this.__priority;
     }
     /**
      * @param value {Number} Priority for this upload stream. Lower values are higher priority. If not specified it will have the lowest priority.
@@ -2109,7 +2076,7 @@ class KinesisConfig {
             throw new Error("priority must be Number");
         }
 
-        this.#__priority = value;
+        this.__priority = value;
     }
     /**
      * @param value {Number} Priority for this upload stream. Lower values are higher priority. If not specified it will have the lowest priority.
@@ -2225,9 +2192,6 @@ Object.defineProperty(KinesisConfig, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class ExportDefinition {
-    #__http = null;
-    #__iotAnalytics = null;
-    #__kinesis = null;
 
     /**
      * @param http {aws-greengrass-core-sdk.StreamManager.HTTPConfig[]} Defines how the stream is uploaded to an HTTP endpoint
@@ -2260,9 +2224,9 @@ class ExportDefinition {
             throw new Error("kinesis array values must be KinesisConfig");
         }
 
-        this.#__http = http;
-        this.#__iotAnalytics = iotAnalytics;
-        this.#__kinesis = kinesis;
+        this.__http = http;
+        this.__iotAnalytics = iotAnalytics;
+        this.__kinesis = kinesis;
     }
 
     /**
@@ -2271,7 +2235,7 @@ class ExportDefinition {
      
      */
     get http() {
-        return this.#__http;
+        return this.__http;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.HTTPConfig[]} Defines how the stream is uploaded to an HTTP endpoint
@@ -2284,7 +2248,7 @@ class ExportDefinition {
             throw new Error("http array values must be HTTPConfig");
         }
 
-        this.#__http = value;
+        this.__http = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.HTTPConfig[]} Defines how the stream is uploaded to an HTTP endpoint
@@ -2301,7 +2265,7 @@ class ExportDefinition {
      
      */
     get iotAnalytics() {
-        return this.#__iotAnalytics;
+        return this.__iotAnalytics;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.IoTAnalyticsConfig[]} Defines how the stream is uploaded to IoT Analytics
@@ -2314,7 +2278,7 @@ class ExportDefinition {
             throw new Error("iotAnalytics array values must be IoTAnalyticsConfig");
         }
 
-        this.#__iotAnalytics = value;
+        this.__iotAnalytics = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.IoTAnalyticsConfig[]} Defines how the stream is uploaded to IoT Analytics
@@ -2331,7 +2295,7 @@ class ExportDefinition {
      
      */
     get kinesis() {
-        return this.#__kinesis;
+        return this.__kinesis;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.KinesisConfig[]} Defines how the stream is uploaded to Kinesis
@@ -2344,7 +2308,7 @@ class ExportDefinition {
             throw new Error("kinesis array values must be KinesisConfig");
         }
 
-        this.#__kinesis = value;
+        this.__kinesis = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.KinesisConfig[]} Defines how the stream is uploaded to Kinesis
@@ -2442,14 +2406,6 @@ Object.defineProperty(ExportDefinition, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class MessageStreamDefinition {
-    #__name = null;
-    #__maxSize = null;
-    #__streamSegmentSize = null;
-    #__timeToLiveMillis = null;
-    #__strategyOnFull = null;
-    #__persistence = null;
-    #__flushOnWrite = null;
-    #__exportDefinition = null;
 
     /**
      * @param name {String} The unique name of the stream.
@@ -2510,14 +2466,14 @@ class MessageStreamDefinition {
             throw new Error("exportDefinition must be ExportDefinition");
         }
 
-        this.#__name = name;
-        this.#__maxSize = maxSize;
-        this.#__streamSegmentSize = streamSegmentSize;
-        this.#__timeToLiveMillis = timeToLiveMillis;
-        this.#__strategyOnFull = strategyOnFull;
-        this.#__persistence = persistence;
-        this.#__flushOnWrite = flushOnWrite;
-        this.#__exportDefinition = exportDefinition;
+        this.__name = name;
+        this.__maxSize = maxSize;
+        this.__streamSegmentSize = streamSegmentSize;
+        this.__timeToLiveMillis = timeToLiveMillis;
+        this.__strategyOnFull = strategyOnFull;
+        this.__persistence = persistence;
+        this.__flushOnWrite = flushOnWrite;
+        this.__exportDefinition = exportDefinition;
     }
 
     /**
@@ -2527,7 +2483,7 @@ class MessageStreamDefinition {
 
      */
     get name() {
-        return this.#__name;
+        return this.__name;
     }
     /**
      * @param value {String} The unique name of the stream.
@@ -2538,7 +2494,7 @@ class MessageStreamDefinition {
             throw new Error("name must be String");
         }
 
-        this.#__name = value;
+        this.__name = value;
     }
     /**
      * @param value {String} The unique name of the stream.
@@ -2556,7 +2512,7 @@ class MessageStreamDefinition {
      
      */
     get maxSize() {
-        return this.#__maxSize;
+        return this.__maxSize;
     }
     /**
      * @param value {Number} The maximum size in bytes for the entire stream. Set to 256MB by default with a minimum of 1KB and a maximum of 8192PB.
@@ -2566,7 +2522,7 @@ class MessageStreamDefinition {
             throw new Error("maxSize must be Number");
         }
 
-        this.#__maxSize = value;
+        this.__maxSize = value;
     }
     /**
      * @param value {Number} The maximum size in bytes for the entire stream. Set to 256MB by default with a minimum of 1KB and a maximum of 8192PB.
@@ -2584,7 +2540,7 @@ class MessageStreamDefinition {
 
      */
     get streamSegmentSize() {
-        return this.#__streamSegmentSize;
+        return this.__streamSegmentSize;
     }
     /**
      * @param value {Number} The size of each segment of the stream. Set to 16MB by default with a minimum of 1KB and a maximum of 2GB.
@@ -2595,7 +2551,7 @@ class MessageStreamDefinition {
             throw new Error("streamSegmentSize must be Number");
         }
 
-        this.#__streamSegmentSize = value;
+        this.__streamSegmentSize = value;
     }
     /**
      * @param value {Number} The size of each segment of the stream. Set to 16MB by default with a minimum of 1KB and a maximum of 2GB.
@@ -2614,7 +2570,7 @@ class MessageStreamDefinition {
 
      */
     get timeToLiveMillis() {
-        return this.#__timeToLiveMillis;
+        return this.__timeToLiveMillis;
     }
     /**
      * @param value {Number} Time to live for each message in milliseconds. Data may be deleted at any time after the TTL expires; deletion is not guaranteed to occur immediately when the TTL expires.
@@ -2625,7 +2581,7 @@ class MessageStreamDefinition {
             throw new Error("timeToLiveMillis must be Number");
         }
 
-        this.#__timeToLiveMillis = value;
+        this.__timeToLiveMillis = value;
     }
     /**
      * @param value {Number} Time to live for each message in milliseconds. Data may be deleted at any time after the TTL expires; deletion is not guaranteed to occur immediately when the TTL expires.
@@ -2645,7 +2601,7 @@ class MessageStreamDefinition {
 
      */
     get strategyOnFull() {
-        return this.#__strategyOnFull;
+        return this.__strategyOnFull;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.StrategyOnFull} What to do when the maximum size of the stream is reached.
@@ -2657,7 +2613,7 @@ class MessageStreamDefinition {
             throw new Error("strategyOnFull must be StrategyOnFull");
         }
 
-        this.#__strategyOnFull = value;
+        this.__strategyOnFull = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.StrategyOnFull} What to do when the maximum size of the stream is reached.
@@ -2677,7 +2633,7 @@ class MessageStreamDefinition {
 
      */
     get persistence() {
-        return this.#__persistence;
+        return this.__persistence;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.Persistence} Stream persistence. If set to File, the file system will be used to persist messages long-term and is resilient to restarts.
@@ -2688,7 +2644,7 @@ class MessageStreamDefinition {
             throw new Error("persistence must be Persistence");
         }
 
-        this.#__persistence = value;
+        this.__persistence = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.Persistence} Stream persistence. If set to File, the file system will be used to persist messages long-term and is resilient to restarts.
@@ -2707,7 +2663,7 @@ class MessageStreamDefinition {
 
      */
     get flushOnWrite() {
-        return this.#__flushOnWrite;
+        return this.__flushOnWrite;
     }
     /**
      * @param value {Boolean} This only applies when Persistence is set to File mode.
@@ -2718,7 +2674,7 @@ class MessageStreamDefinition {
             throw new Error("flushOnWrite must be Boolean");
         }
 
-        this.#__flushOnWrite = value;
+        this.__flushOnWrite = value;
     }
     /**
      * @param value {Boolean} This only applies when Persistence is set to File mode.
@@ -2736,7 +2692,7 @@ class MessageStreamDefinition {
      
      */
     get exportDefinition() {
-        return this.#__exportDefinition;
+        return this.__exportDefinition;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ExportDefinition} Defines how and where the stream is uploaded. See the definition of the ExportDefinition object for more detail.
@@ -2746,7 +2702,7 @@ class MessageStreamDefinition {
             throw new Error("exportDefinition must be ExportDefinition");
         }
 
-        this.#__exportDefinition = value;
+        this.__exportDefinition = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ExportDefinition} Defines how and where the stream is uploaded. See the definition of the ExportDefinition object for more detail.
@@ -2900,9 +2856,6 @@ Object.defineProperty(MessageStreamDefinition, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class MessageStreamInfo {
-    #__definition = null;
-    #__storageStatus = null;
-    #__exportStatuses = null;
 
     /**
      * @param definition {aws-greengrass-core-sdk.StreamManager.MessageStreamDefinition} 
@@ -2929,9 +2882,9 @@ class MessageStreamInfo {
             throw new Error("exportStatuses array values must be MessageStreamInfo._exportStatuses");
         }
 
-        this.#__definition = definition;
-        this.#__storageStatus = storageStatus;
-        this.#__exportStatuses = exportStatuses;
+        this.__definition = definition;
+        this.__storageStatus = storageStatus;
+        this.__exportStatuses = exportStatuses;
     }
 
     /**
@@ -2939,7 +2892,7 @@ class MessageStreamInfo {
      
      */
     get definition() {
-        return this.#__definition;
+        return this.__definition;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamDefinition} 
@@ -2949,7 +2902,7 @@ class MessageStreamInfo {
             throw new Error("definition must be MessageStreamDefinition");
         }
 
-        this.#__definition = value;
+        this.__definition = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamDefinition} 
@@ -2966,7 +2919,7 @@ class MessageStreamInfo {
      
      */
     get storageStatus() {
-        return this.#__storageStatus;
+        return this.__storageStatus;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamInfo~MessageStreamInfo._storageStatus} Stream status including oldest/newest sequence number and total bytes
@@ -2976,7 +2929,7 @@ class MessageStreamInfo {
             throw new Error("storageStatus must be MessageStreamInfo._storageStatus");
         }
 
-        this.#__storageStatus = value;
+        this.__storageStatus = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamInfo~MessageStreamInfo._storageStatus} Stream status including oldest/newest sequence number and total bytes
@@ -2992,7 +2945,7 @@ class MessageStreamInfo {
      
      */
     get exportStatuses() {
-        return this.#__exportStatuses;
+        return this.__exportStatuses;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamInfo~MessageStreamInfo._exportStatuses[]} 
@@ -3005,7 +2958,7 @@ class MessageStreamInfo {
             throw new Error("exportStatuses array values must be MessageStreamInfo._exportStatuses");
         }
 
-        this.#__exportStatuses = value;
+        this.__exportStatuses = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamInfo~MessageStreamInfo._exportStatuses[]} 
@@ -3059,9 +3012,6 @@ MessageStreamInfo._storageStatus =
      * @memberOf aws-greengrass-core-sdk.StreamManager
      */
     class _storageStatus {
-        #__oldestSequenceNumber = null;
-        #__newestSequenceNumber = null;
-        #__totalBytes = null;
 
         /**
          * @param oldestSequenceNumber {Number} The sequence number of the first message which is still accessible in the stream.
@@ -3085,9 +3035,9 @@ MessageStreamInfo._storageStatus =
                 throw new Error("totalBytes must be Number");
             }
 
-            this.#__oldestSequenceNumber = oldestSequenceNumber;
-            this.#__newestSequenceNumber = newestSequenceNumber;
-            this.#__totalBytes = totalBytes;
+            this.__oldestSequenceNumber = oldestSequenceNumber;
+            this.__newestSequenceNumber = newestSequenceNumber;
+            this.__totalBytes = totalBytes;
         }
 
         /**
@@ -3096,7 +3046,7 @@ MessageStreamInfo._storageStatus =
          
          */
         get oldestSequenceNumber() {
-            return this.#__oldestSequenceNumber;
+            return this.__oldestSequenceNumber;
         }
         /**
          * @param value {Number} The sequence number of the first message which is still accessible in the stream.
@@ -3106,7 +3056,7 @@ MessageStreamInfo._storageStatus =
                 throw new Error("oldestSequenceNumber must be Number");
             }
 
-            this.#__oldestSequenceNumber = value;
+            this.__oldestSequenceNumber = value;
         }
         /**
          * @param value {Number} The sequence number of the first message which is still accessible in the stream.
@@ -3123,7 +3073,7 @@ MessageStreamInfo._storageStatus =
          
          */
         get newestSequenceNumber() {
-            return this.#__newestSequenceNumber;
+            return this.__newestSequenceNumber;
         }
         /**
          * @param value {Number} The sequence number of the last appended message.
@@ -3133,7 +3083,7 @@ MessageStreamInfo._storageStatus =
                 throw new Error("newestSequenceNumber must be Number");
             }
 
-            this.#__newestSequenceNumber = value;
+            this.__newestSequenceNumber = value;
         }
         /**
          * @param value {Number} The sequence number of the last appended message.
@@ -3150,7 +3100,7 @@ MessageStreamInfo._storageStatus =
          
          */
         get totalBytes() {
-            return this.#__totalBytes;
+            return this.__totalBytes;
         }
         /**
          * @param value {Number} The current total size of the stream in bytes.
@@ -3160,7 +3110,7 @@ MessageStreamInfo._storageStatus =
                 throw new Error("totalBytes must be Number");
             }
 
-            this.#__totalBytes = value;
+            this.__totalBytes = value;
         }
         /**
          * @param value {Number} The current total size of the stream in bytes.
@@ -3241,10 +3191,6 @@ MessageStreamInfo._exportStatuses =
      * @memberOf aws-greengrass-core-sdk.StreamManager
      */
     class _exportStatuses {
-        #__exportConfigIdentifier = null;
-        #__lastExportedSequenceNumber = null;
-        #__lastExportTime = null;
-        #__errorMessage = null;
 
         /**
          * @param exportConfigIdentifier {String} The unique export identifier.
@@ -3274,10 +3220,10 @@ MessageStreamInfo._exportStatuses =
                 throw new Error("errorMessage must be String");
             }
 
-            this.#__exportConfigIdentifier = exportConfigIdentifier;
-            this.#__lastExportedSequenceNumber = lastExportedSequenceNumber;
-            this.#__lastExportTime = lastExportTime;
-            this.#__errorMessage = errorMessage;
+            this.__exportConfigIdentifier = exportConfigIdentifier;
+            this.__lastExportedSequenceNumber = lastExportedSequenceNumber;
+            this.__lastExportTime = lastExportTime;
+            this.__errorMessage = errorMessage;
         }
 
         /**
@@ -3286,7 +3232,7 @@ MessageStreamInfo._exportStatuses =
          
          */
         get exportConfigIdentifier() {
-            return this.#__exportConfigIdentifier;
+            return this.__exportConfigIdentifier;
         }
         /**
          * @param value {String} The unique export identifier.
@@ -3296,7 +3242,7 @@ MessageStreamInfo._exportStatuses =
                 throw new Error("exportConfigIdentifier must be String");
             }
 
-            this.#__exportConfigIdentifier = value;
+            this.__exportConfigIdentifier = value;
         }
         /**
          * @param value {String} The unique export identifier.
@@ -3313,7 +3259,7 @@ MessageStreamInfo._exportStatuses =
          
          */
         get lastExportedSequenceNumber() {
-            return this.#__lastExportedSequenceNumber;
+            return this.__lastExportedSequenceNumber;
         }
         /**
          * @param value {Number} The sequence number of the last message which was successfully exported.
@@ -3323,7 +3269,7 @@ MessageStreamInfo._exportStatuses =
                 throw new Error("lastExportedSequenceNumber must be Number");
             }
 
-            this.#__lastExportedSequenceNumber = value;
+            this.__lastExportedSequenceNumber = value;
         }
         /**
          * @param value {Number} The sequence number of the last message which was successfully exported.
@@ -3340,7 +3286,7 @@ MessageStreamInfo._exportStatuses =
          
          */
         get lastExportTime() {
-            return this.#__lastExportTime;
+            return this.__lastExportTime;
         }
         /**
          * @param value {Number} The last time an export was attempted. Data is Unix epoch time in milliseconds.
@@ -3350,7 +3296,7 @@ MessageStreamInfo._exportStatuses =
                 throw new Error("lastExportTime must be Number");
             }
 
-            this.#__lastExportTime = value;
+            this.__lastExportTime = value;
         }
         /**
          * @param value {Number} The last time an export was attempted. Data is Unix epoch time in milliseconds.
@@ -3367,7 +3313,7 @@ MessageStreamInfo._exportStatuses =
          
          */
         get errorMessage() {
-            return this.#__errorMessage;
+            return this.__errorMessage;
         }
         /**
          * @param value {String} Error message from the last export attempt if it failed.
@@ -3377,7 +3323,7 @@ MessageStreamInfo._exportStatuses =
                 throw new Error("errorMessage must be String");
             }
 
-            this.#__errorMessage = value;
+            this.__errorMessage = value;
         }
         /**
          * @param value {String} Error message from the last export attempt if it failed.
@@ -3503,10 +3449,6 @@ Object.defineProperty(MessageStreamInfo, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class Message {
-    #__streamName = null;
-    #__sequenceNumber = null;
-    #__ingestTime = null;
-    #__payload = null;
 
     /**
      * @param streamName {String} The name of the stream which this message is in.
@@ -3536,10 +3478,10 @@ class Message {
             throw new Error("payload must be Buffer");
         }
 
-        this.#__streamName = streamName;
-        this.#__sequenceNumber = sequenceNumber;
-        this.#__ingestTime = ingestTime;
-        this.#__payload = payload;
+        this.__streamName = streamName;
+        this.__sequenceNumber = sequenceNumber;
+        this.__ingestTime = ingestTime;
+        this.__payload = payload;
     }
 
     /**
@@ -3548,7 +3490,7 @@ class Message {
      
      */
     get streamName() {
-        return this.#__streamName;
+        return this.__streamName;
     }
     /**
      * @param value {String} The name of the stream which this message is in.
@@ -3558,7 +3500,7 @@ class Message {
             throw new Error("streamName must be String");
         }
 
-        this.#__streamName = value;
+        this.__streamName = value;
     }
     /**
      * @param value {String} The name of the stream which this message is in.
@@ -3575,7 +3517,7 @@ class Message {
      
      */
     get sequenceNumber() {
-        return this.#__sequenceNumber;
+        return this.__sequenceNumber;
     }
     /**
      * @param value {Number} The sequence number of this message within the stream.
@@ -3585,7 +3527,7 @@ class Message {
             throw new Error("sequenceNumber must be Number");
         }
 
-        this.#__sequenceNumber = value;
+        this.__sequenceNumber = value;
     }
     /**
      * @param value {Number} The sequence number of this message within the stream.
@@ -3602,7 +3544,7 @@ class Message {
      
      */
     get ingestTime() {
-        return this.#__ingestTime;
+        return this.__ingestTime;
     }
     /**
      * @param value {Number} The time that the message was ingested to Stream Manager. Data is Unix epoch time in milliseconds.
@@ -3612,7 +3554,7 @@ class Message {
             throw new Error("ingestTime must be Number");
         }
 
-        this.#__ingestTime = value;
+        this.__ingestTime = value;
     }
     /**
      * @param value {Number} The time that the message was ingested to Stream Manager. Data is Unix epoch time in milliseconds.
@@ -3629,7 +3571,7 @@ class Message {
      
      */
     get payload() {
-        return this.#__payload;
+        return this.__payload;
     }
     /**
      * @param value {Buffer} The binary message data.
@@ -3639,7 +3581,7 @@ class Message {
             throw new Error("payload must be Buffer");
         }
 
-        this.#__payload = value;
+        this.__payload = value;
     }
     /**
      * @param value {Buffer} The binary message data.
@@ -3732,10 +3674,6 @@ Object.defineProperty(Message, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class ReadMessagesOptions {
-    #__desiredStartSequenceNumber = null;
-    #__minMessageCount = null;
-    #__maxMessageCount = null;
-    #__readTimeoutMillis = null;
 
     /**
      * @param desiredStartSequenceNumber {Number} The desired beginning sequence number to start reading from. If the desired sequence number is less than the current minimum of the stream, then it will instead start reading from the current minimum.
@@ -3770,10 +3708,10 @@ class ReadMessagesOptions {
             throw new Error("readTimeoutMillis must be Number");
         }
 
-        this.#__desiredStartSequenceNumber = desiredStartSequenceNumber;
-        this.#__minMessageCount = minMessageCount;
-        this.#__maxMessageCount = maxMessageCount;
-        this.#__readTimeoutMillis = readTimeoutMillis;
+        this.__desiredStartSequenceNumber = desiredStartSequenceNumber;
+        this.__minMessageCount = minMessageCount;
+        this.__maxMessageCount = maxMessageCount;
+        this.__readTimeoutMillis = readTimeoutMillis;
     }
 
     /**
@@ -3782,7 +3720,7 @@ class ReadMessagesOptions {
      
      */
     get desiredStartSequenceNumber() {
-        return this.#__desiredStartSequenceNumber;
+        return this.__desiredStartSequenceNumber;
     }
     /**
      * @param value {Number} The desired beginning sequence number to start reading from. If the desired sequence number is less than the current minimum of the stream, then it will instead start reading from the current minimum.
@@ -3792,7 +3730,7 @@ class ReadMessagesOptions {
             throw new Error("desiredStartSequenceNumber must be Number");
         }
 
-        this.#__desiredStartSequenceNumber = value;
+        this.__desiredStartSequenceNumber = value;
     }
     /**
      * @param value {Number} The desired beginning sequence number to start reading from. If the desired sequence number is less than the current minimum of the stream, then it will instead start reading from the current minimum.
@@ -3810,7 +3748,7 @@ class ReadMessagesOptions {
 
      */
     get minMessageCount() {
-        return this.#__minMessageCount;
+        return this.__minMessageCount;
     }
     /**
      * @param value {Number} The minimum number of messages that will be returned. If not enough messages are available for reading, then NotEnoughMessages exception will be thrown.
@@ -3821,7 +3759,7 @@ class ReadMessagesOptions {
             throw new Error("minMessageCount must be Number");
         }
 
-        this.#__minMessageCount = value;
+        this.__minMessageCount = value;
     }
     /**
      * @param value {Number} The minimum number of messages that will be returned. If not enough messages are available for reading, then NotEnoughMessages exception will be thrown.
@@ -3840,7 +3778,7 @@ class ReadMessagesOptions {
 
      */
     get maxMessageCount() {
-        return this.#__maxMessageCount;
+        return this.__maxMessageCount;
     }
     /**
      * @param value {Number} The maximum number of messages that will be returned.
@@ -3851,7 +3789,7 @@ class ReadMessagesOptions {
             throw new Error("maxMessageCount must be Number");
         }
 
-        this.#__maxMessageCount = value;
+        this.__maxMessageCount = value;
     }
     /**
      * @param value {Number} The maximum number of messages that will be returned.
@@ -3872,7 +3810,7 @@ class ReadMessagesOptions {
 
      */
     get readTimeoutMillis() {
-        return this.#__readTimeoutMillis;
+        return this.__readTimeoutMillis;
     }
     /**
      * @param value {Number} The time to wait for messages in milliseconds. Default is 0, meaning that the server will not wait for messages.
@@ -3885,7 +3823,7 @@ class ReadMessagesOptions {
             throw new Error("readTimeoutMillis must be Number");
         }
 
-        this.#__readTimeoutMillis = value;
+        this.__readTimeoutMillis = value;
     }
     /**
      * @param value {Number} The time to wait for messages in milliseconds. Default is 0, meaning that the server will not wait for messages.
@@ -3989,8 +3927,6 @@ Object.defineProperty(ReadMessagesOptions, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class CreateMessageStreamRequest {
-    #__requestId = null;
-    #__definition = null;
 
     /**
      * @param requestId {String} 
@@ -4008,8 +3944,8 @@ class CreateMessageStreamRequest {
             throw new Error("definition must be MessageStreamDefinition");
         }
 
-        this.#__requestId = requestId;
-        this.#__definition = definition;
+        this.__requestId = requestId;
+        this.__definition = definition;
     }
 
     /**
@@ -4017,7 +3953,7 @@ class CreateMessageStreamRequest {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -4027,7 +3963,7 @@ class CreateMessageStreamRequest {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -4043,7 +3979,7 @@ class CreateMessageStreamRequest {
      
      */
     get definition() {
-        return this.#__definition;
+        return this.__definition;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamDefinition} 
@@ -4053,7 +3989,7 @@ class CreateMessageStreamRequest {
             throw new Error("definition must be MessageStreamDefinition");
         }
 
-        this.#__definition = value;
+        this.__definition = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamDefinition} 
@@ -4122,9 +4058,6 @@ Object.defineProperty(CreateMessageStreamRequest, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class CreateMessageStreamResponse {
-    #__requestId = null;
-    #__status = null;
-    #__errorMessage = null;
 
     /**
      * @param requestId {String} 
@@ -4148,9 +4081,9 @@ class CreateMessageStreamResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__requestId = requestId;
-        this.#__status = status;
-        this.#__errorMessage = errorMessage;
+        this.__requestId = requestId;
+        this.__status = status;
+        this.__errorMessage = errorMessage;
     }
 
     /**
@@ -4158,7 +4091,7 @@ class CreateMessageStreamResponse {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -4168,7 +4101,7 @@ class CreateMessageStreamResponse {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -4184,7 +4117,7 @@ class CreateMessageStreamResponse {
      
      */
     get status() {
-        return this.#__status;
+        return this.__status;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -4194,7 +4127,7 @@ class CreateMessageStreamResponse {
             throw new Error("status must be ResponseStatusCode");
         }
 
-        this.#__status = value;
+        this.__status = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -4210,7 +4143,7 @@ class CreateMessageStreamResponse {
      
      */
     get errorMessage() {
-        return this.#__errorMessage;
+        return this.__errorMessage;
     }
     /**
      * @param value {String} 
@@ -4220,7 +4153,7 @@ class CreateMessageStreamResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__errorMessage = value;
+        this.__errorMessage = value;
     }
     /**
      * @param value {String} 
@@ -4302,8 +4235,6 @@ Object.defineProperty(CreateMessageStreamResponse, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class DeleteMessageStreamRequest {
-    #__requestId = null;
-    #__name = null;
 
     /**
      * @param requestId {String} 
@@ -4321,8 +4252,8 @@ class DeleteMessageStreamRequest {
             throw new Error("name must be String");
         }
 
-        this.#__requestId = requestId;
-        this.#__name = name;
+        this.__requestId = requestId;
+        this.__name = name;
     }
 
     /**
@@ -4330,7 +4261,7 @@ class DeleteMessageStreamRequest {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -4340,7 +4271,7 @@ class DeleteMessageStreamRequest {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -4356,7 +4287,7 @@ class DeleteMessageStreamRequest {
      
      */
     get name() {
-        return this.#__name;
+        return this.__name;
     }
     /**
      * @param value {String} 
@@ -4366,7 +4297,7 @@ class DeleteMessageStreamRequest {
             throw new Error("name must be String");
         }
 
-        this.#__name = value;
+        this.__name = value;
     }
     /**
      * @param value {String} 
@@ -4438,9 +4369,6 @@ Object.defineProperty(DeleteMessageStreamRequest, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class DeleteMessageStreamResponse {
-    #__requestId = null;
-    #__status = null;
-    #__errorMessage = null;
 
     /**
      * @param requestId {String} 
@@ -4464,9 +4392,9 @@ class DeleteMessageStreamResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__requestId = requestId;
-        this.#__status = status;
-        this.#__errorMessage = errorMessage;
+        this.__requestId = requestId;
+        this.__status = status;
+        this.__errorMessage = errorMessage;
     }
 
     /**
@@ -4474,7 +4402,7 @@ class DeleteMessageStreamResponse {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -4484,7 +4412,7 @@ class DeleteMessageStreamResponse {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -4500,7 +4428,7 @@ class DeleteMessageStreamResponse {
      
      */
     get status() {
-        return this.#__status;
+        return this.__status;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -4510,7 +4438,7 @@ class DeleteMessageStreamResponse {
             throw new Error("status must be ResponseStatusCode");
         }
 
-        this.#__status = value;
+        this.__status = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -4526,7 +4454,7 @@ class DeleteMessageStreamResponse {
      
      */
     get errorMessage() {
-        return this.#__errorMessage;
+        return this.__errorMessage;
     }
     /**
      * @param value {String} 
@@ -4536,7 +4464,7 @@ class DeleteMessageStreamResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__errorMessage = value;
+        this.__errorMessage = value;
     }
     /**
      * @param value {String} 
@@ -4618,8 +4546,6 @@ Object.defineProperty(DeleteMessageStreamResponse, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class DescribeMessageStreamRequest {
-    #__requestId = null;
-    #__name = null;
 
     /**
      * @param requestId {String} 
@@ -4637,8 +4563,8 @@ class DescribeMessageStreamRequest {
             throw new Error("name must be String");
         }
 
-        this.#__requestId = requestId;
-        this.#__name = name;
+        this.__requestId = requestId;
+        this.__name = name;
     }
 
     /**
@@ -4646,7 +4572,7 @@ class DescribeMessageStreamRequest {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -4656,7 +4582,7 @@ class DescribeMessageStreamRequest {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -4672,7 +4598,7 @@ class DescribeMessageStreamRequest {
      
      */
     get name() {
-        return this.#__name;
+        return this.__name;
     }
     /**
      * @param value {String} 
@@ -4682,7 +4608,7 @@ class DescribeMessageStreamRequest {
             throw new Error("name must be String");
         }
 
-        this.#__name = value;
+        this.__name = value;
     }
     /**
      * @param value {String} 
@@ -4754,10 +4680,6 @@ Object.defineProperty(DescribeMessageStreamRequest, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class DescribeMessageStreamResponse {
-    #__requestId = null;
-    #__status = null;
-    #__errorMessage = null;
-    #__messageStreamInfo = null;
 
     /**
      * @param requestId {String} 
@@ -4787,10 +4709,10 @@ class DescribeMessageStreamResponse {
             throw new Error("messageStreamInfo must be MessageStreamInfo");
         }
 
-        this.#__requestId = requestId;
-        this.#__status = status;
-        this.#__errorMessage = errorMessage;
-        this.#__messageStreamInfo = messageStreamInfo;
+        this.__requestId = requestId;
+        this.__status = status;
+        this.__errorMessage = errorMessage;
+        this.__messageStreamInfo = messageStreamInfo;
     }
 
     /**
@@ -4798,7 +4720,7 @@ class DescribeMessageStreamResponse {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -4808,7 +4730,7 @@ class DescribeMessageStreamResponse {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -4824,7 +4746,7 @@ class DescribeMessageStreamResponse {
      
      */
     get status() {
-        return this.#__status;
+        return this.__status;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -4834,7 +4756,7 @@ class DescribeMessageStreamResponse {
             throw new Error("status must be ResponseStatusCode");
         }
 
-        this.#__status = value;
+        this.__status = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -4850,7 +4772,7 @@ class DescribeMessageStreamResponse {
      
      */
     get errorMessage() {
-        return this.#__errorMessage;
+        return this.__errorMessage;
     }
     /**
      * @param value {String} 
@@ -4860,7 +4782,7 @@ class DescribeMessageStreamResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__errorMessage = value;
+        this.__errorMessage = value;
     }
     /**
      * @param value {String} 
@@ -4876,7 +4798,7 @@ class DescribeMessageStreamResponse {
      
      */
     get messageStreamInfo() {
-        return this.#__messageStreamInfo;
+        return this.__messageStreamInfo;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamInfo} 
@@ -4886,7 +4808,7 @@ class DescribeMessageStreamResponse {
             throw new Error("messageStreamInfo must be MessageStreamInfo");
         }
 
-        this.#__messageStreamInfo = value;
+        this.__messageStreamInfo = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.MessageStreamInfo} 
@@ -4981,9 +4903,6 @@ Object.defineProperty(DescribeMessageStreamResponse, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class AppendMessageRequest {
-    #__requestId = null;
-    #__name = null;
-    #__payload = null;
 
     /**
      * @param requestId {String} 
@@ -5007,9 +4926,9 @@ class AppendMessageRequest {
             throw new Error("payload must be Buffer");
         }
 
-        this.#__requestId = requestId;
-        this.#__name = name;
-        this.#__payload = payload;
+        this.__requestId = requestId;
+        this.__name = name;
+        this.__payload = payload;
     }
 
     /**
@@ -5017,7 +4936,7 @@ class AppendMessageRequest {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -5027,7 +4946,7 @@ class AppendMessageRequest {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -5043,7 +4962,7 @@ class AppendMessageRequest {
      
      */
     get name() {
-        return this.#__name;
+        return this.__name;
     }
     /**
      * @param value {String} 
@@ -5053,7 +4972,7 @@ class AppendMessageRequest {
             throw new Error("name must be String");
         }
 
-        this.#__name = value;
+        this.__name = value;
     }
     /**
      * @param value {String} 
@@ -5069,7 +4988,7 @@ class AppendMessageRequest {
      
      */
     get payload() {
-        return this.#__payload;
+        return this.__payload;
     }
     /**
      * @param value {Buffer} 
@@ -5079,7 +4998,7 @@ class AppendMessageRequest {
             throw new Error("payload must be Buffer");
         }
 
-        this.#__payload = value;
+        this.__payload = value;
     }
     /**
      * @param value {Buffer} 
@@ -5165,10 +5084,6 @@ Object.defineProperty(AppendMessageRequest, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class AppendMessageResponse {
-    #__requestId = null;
-    #__status = null;
-    #__errorMessage = null;
-    #__sequenceNumber = null;
 
     /**
      * @param requestId {String} 
@@ -5198,10 +5113,10 @@ class AppendMessageResponse {
             throw new Error("sequenceNumber must be Number");
         }
 
-        this.#__requestId = requestId;
-        this.#__status = status;
-        this.#__errorMessage = errorMessage;
-        this.#__sequenceNumber = sequenceNumber;
+        this.__requestId = requestId;
+        this.__status = status;
+        this.__errorMessage = errorMessage;
+        this.__sequenceNumber = sequenceNumber;
     }
 
     /**
@@ -5209,7 +5124,7 @@ class AppendMessageResponse {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -5219,7 +5134,7 @@ class AppendMessageResponse {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -5235,7 +5150,7 @@ class AppendMessageResponse {
      
      */
     get status() {
-        return this.#__status;
+        return this.__status;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -5245,7 +5160,7 @@ class AppendMessageResponse {
             throw new Error("status must be ResponseStatusCode");
         }
 
-        this.#__status = value;
+        this.__status = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -5261,7 +5176,7 @@ class AppendMessageResponse {
      
      */
     get errorMessage() {
-        return this.#__errorMessage;
+        return this.__errorMessage;
     }
     /**
      * @param value {String} 
@@ -5271,7 +5186,7 @@ class AppendMessageResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__errorMessage = value;
+        this.__errorMessage = value;
     }
     /**
      * @param value {String} 
@@ -5287,7 +5202,7 @@ class AppendMessageResponse {
      
      */
     get sequenceNumber() {
-        return this.#__sequenceNumber;
+        return this.__sequenceNumber;
     }
     /**
      * @param value {Number} 
@@ -5297,7 +5212,7 @@ class AppendMessageResponse {
             throw new Error("sequenceNumber must be Number");
         }
 
-        this.#__sequenceNumber = value;
+        this.__sequenceNumber = value;
     }
     /**
      * @param value {Number} 
@@ -5392,9 +5307,6 @@ Object.defineProperty(AppendMessageResponse, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class ReadMessagesRequest {
-    #__requestId = null;
-    #__streamName = null;
-    #__readMessagesOptions = null;
 
     /**
      * @param requestId {String} 
@@ -5418,9 +5330,9 @@ class ReadMessagesRequest {
             throw new Error("readMessagesOptions must be ReadMessagesOptions");
         }
 
-        this.#__requestId = requestId;
-        this.#__streamName = streamName;
-        this.#__readMessagesOptions = readMessagesOptions;
+        this.__requestId = requestId;
+        this.__streamName = streamName;
+        this.__readMessagesOptions = readMessagesOptions;
     }
 
     /**
@@ -5428,7 +5340,7 @@ class ReadMessagesRequest {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -5438,7 +5350,7 @@ class ReadMessagesRequest {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -5454,7 +5366,7 @@ class ReadMessagesRequest {
      
      */
     get streamName() {
-        return this.#__streamName;
+        return this.__streamName;
     }
     /**
      * @param value {String} 
@@ -5464,7 +5376,7 @@ class ReadMessagesRequest {
             throw new Error("streamName must be String");
         }
 
-        this.#__streamName = value;
+        this.__streamName = value;
     }
     /**
      * @param value {String} 
@@ -5480,7 +5392,7 @@ class ReadMessagesRequest {
      
      */
     get readMessagesOptions() {
-        return this.#__readMessagesOptions;
+        return this.__readMessagesOptions;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ReadMessagesOptions} 
@@ -5490,7 +5402,7 @@ class ReadMessagesRequest {
             throw new Error("readMessagesOptions must be ReadMessagesOptions");
         }
 
-        this.#__readMessagesOptions = value;
+        this.__readMessagesOptions = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ReadMessagesOptions} 
@@ -5575,10 +5487,6 @@ Object.defineProperty(ReadMessagesRequest, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class ReadMessagesResponse {
-    #__requestId = null;
-    #__messages = null;
-    #__status = null;
-    #__errorMessage = null;
 
     /**
      * @param requestId {String} 
@@ -5611,10 +5519,10 @@ class ReadMessagesResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__requestId = requestId;
-        this.#__messages = messages;
-        this.#__status = status;
-        this.#__errorMessage = errorMessage;
+        this.__requestId = requestId;
+        this.__messages = messages;
+        this.__status = status;
+        this.__errorMessage = errorMessage;
     }
 
     /**
@@ -5622,7 +5530,7 @@ class ReadMessagesResponse {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -5632,7 +5540,7 @@ class ReadMessagesResponse {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -5648,7 +5556,7 @@ class ReadMessagesResponse {
      
      */
     get messages() {
-        return this.#__messages;
+        return this.__messages;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.Message[]} 
@@ -5661,7 +5569,7 @@ class ReadMessagesResponse {
             throw new Error("messages array values must be Message");
         }
 
-        this.#__messages = value;
+        this.__messages = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.Message[]} 
@@ -5677,7 +5585,7 @@ class ReadMessagesResponse {
      
      */
     get status() {
-        return this.#__status;
+        return this.__status;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -5687,7 +5595,7 @@ class ReadMessagesResponse {
             throw new Error("status must be ResponseStatusCode");
         }
 
-        this.#__status = value;
+        this.__status = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -5703,7 +5611,7 @@ class ReadMessagesResponse {
      
      */
     get errorMessage() {
-        return this.#__errorMessage;
+        return this.__errorMessage;
     }
     /**
      * @param value {String} 
@@ -5713,7 +5621,7 @@ class ReadMessagesResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__errorMessage = value;
+        this.__errorMessage = value;
     }
     /**
      * @param value {String} 
@@ -5814,7 +5722,6 @@ Object.defineProperty(ReadMessagesResponse, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class ListStreamsRequest {
-    #__requestId = null;
 
     /**
      * @param requestId {String} 
@@ -5826,7 +5733,7 @@ class ListStreamsRequest {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = requestId;
+        this.__requestId = requestId;
     }
 
     /**
@@ -5834,7 +5741,7 @@ class ListStreamsRequest {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -5844,7 +5751,7 @@ class ListStreamsRequest {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -5900,10 +5807,6 @@ Object.defineProperty(ListStreamsRequest, "validationsMap", {
  * @memberOf aws-greengrass-core-sdk.StreamManager
  */
 class ListStreamsResponse {
-    #__requestId = null;
-    #__status = null;
-    #__errorMessage = null;
-    #__streams = null;
 
     /**
      * @param requestId {String} 
@@ -5936,10 +5839,10 @@ class ListStreamsResponse {
             throw new Error("streams array values must be String");
         }
 
-        this.#__requestId = requestId;
-        this.#__status = status;
-        this.#__errorMessage = errorMessage;
-        this.#__streams = streams;
+        this.__requestId = requestId;
+        this.__status = status;
+        this.__errorMessage = errorMessage;
+        this.__streams = streams;
     }
 
     /**
@@ -5947,7 +5850,7 @@ class ListStreamsResponse {
      
      */
     get requestId() {
-        return this.#__requestId;
+        return this.__requestId;
     }
     /**
      * @param value {String} 
@@ -5957,7 +5860,7 @@ class ListStreamsResponse {
             throw new Error("requestId must be String");
         }
 
-        this.#__requestId = value;
+        this.__requestId = value;
     }
     /**
      * @param value {String} 
@@ -5973,7 +5876,7 @@ class ListStreamsResponse {
      
      */
     get status() {
-        return this.#__status;
+        return this.__status;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -5983,7 +5886,7 @@ class ListStreamsResponse {
             throw new Error("status must be ResponseStatusCode");
         }
 
-        this.#__status = value;
+        this.__status = value;
     }
     /**
      * @param value {aws-greengrass-core-sdk.StreamManager.ResponseStatusCode} 
@@ -5999,7 +5902,7 @@ class ListStreamsResponse {
      
      */
     get errorMessage() {
-        return this.#__errorMessage;
+        return this.__errorMessage;
     }
     /**
      * @param value {String} 
@@ -6009,7 +5912,7 @@ class ListStreamsResponse {
             throw new Error("errorMessage must be String");
         }
 
-        this.#__errorMessage = value;
+        this.__errorMessage = value;
     }
     /**
      * @param value {String} 
@@ -6025,7 +5928,7 @@ class ListStreamsResponse {
      
      */
     get streams() {
-        return this.#__streams;
+        return this.__streams;
     }
     /**
      * @param value {String[]} 
@@ -6038,7 +5941,7 @@ class ListStreamsResponse {
             throw new Error("streams array values must be String");
         }
 
-        this.#__streams = value;
+        this.__streams = value;
     }
     /**
      * @param value {String[]} 
