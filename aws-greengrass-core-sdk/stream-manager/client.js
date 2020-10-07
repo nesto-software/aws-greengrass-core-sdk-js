@@ -7,7 +7,7 @@
 
 const cbor = require('cbor');
 const net = require('net');
-const smData = require('aws-greengrass-core-sdk/stream-manager/data');
+const smData = require('./data');
 const exceptions = require('./exceptions');
 const util = require('./util');
 

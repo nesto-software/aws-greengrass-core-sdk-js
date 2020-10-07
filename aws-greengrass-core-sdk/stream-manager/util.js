@@ -3,7 +3,7 @@
  * Copyright (c) 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  */
 
-const smData = require('aws-greengrass-core-sdk/stream-manager/data');
+const smData = require('./data');
 const exceptions = require('./exceptions');
 
 // eslint-disable-next-line no-bitwise
